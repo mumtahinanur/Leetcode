@@ -1,0 +1,30 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C++: Compile, Run, and Clean",
+            "type": "process",
+            "command": "/bin/bash",
+            "args": [
+                "-c",
+                "g++ -std=c++17 -Wall -Wextra \"$1\" -o /tmp/cpp_solution; status=$?; if [ $status -eq 0 ]; then /tmp/cpp_solution; status=$?; fi; rm -f /tmp/cpp_solution; exit $status",
+                "bash",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true,
+                "echo": false,
+                "showReuseMessage": false
+            }
+        }
+    ]
+}
